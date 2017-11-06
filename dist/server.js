@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var dotenv = require("dotenv");
+var express_1 = require("./config/express");
+var admin_1 = require("./firebase/admin");
+var UserRoutes_1 = require("./api/UserRoutes");
+var PokemonRoutes_1 = require("./api/PokemonRoutes");
+var config = dotenv.config({ path: ".env/" + process.argv[2] }).parsed;
+var app = new express_1.App(config);
+var firebase = new admin_1.FireBaseAdmin(config.FIREBASE_KEY_LOCATION);
+app.init();
+app.allowCorse();
+app.startService();
+UserRoutes_1.UserRoutes.init(app.app, firebase);
+PokemonRoutes_1.PokemonRoutes.init(app.app, firebase);
+app.startServer();

@@ -1,0 +1,32 @@
+{
+  "name": "practic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "watch:build": "tsc --watch",
+    "watch:server": "nodemon dist/server.js -- dev --watch dist",
+    "start": "npm-run-all clean --parallel watch:build watch:server --print-label"
+  },
+  "author": "whiteTigger",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "firebase-admin": "^5.4.3",
+    "nodemon": "^1.12.1",
+    "npm-run-all": "^4.1.1",
+    "typescript": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^4.0.2",
+    "@types/express": "^4.0.39",
+    "@types/node": "^8.0.47",
+    "@types/morgan": "^1.7.35",
+    "@types/body-parser": "^1.16.7",
+    "rimraf": "^2.6.2",
+    "morgan": "1.9.0",
+    "body-parser": "1.18.2"
+  }
+}

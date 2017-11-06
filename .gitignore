@@ -1,0 +1,6 @@
+node_modules/
+dis/
+.env/dev
+.env/firebaseKey.json
+.log
+package-lock.json
